@@ -56,7 +56,6 @@ class App extends React.Component {
                 <Route exact path="/accessories" render={() => (<Accessories />)} />
                 <Route exact path="/about" render={() => (<About />)} />
                 <Route exact path="/contact" render={() => (<Contact />)} />
-                <Route exact path="/shop" render={() => (<Redirect push to="/shop/readymadeorders" />)} />
                 <Route exact path="/Customs" render={() => (<Customs />)} />                
                 <Route render={() => (<notFound />)} />
               </Switch>
