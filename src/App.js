@@ -57,7 +57,7 @@ class App extends React.Component {
                 <Route exact path="/about" render={() => (<About />)} />
                 <Route exact path="/contact" render={() => (<Contact />)} />
                 <Route exact path="/Customs" render={() => (<Customs />)} />                
-                <Route render={() => (<notFound />)} />
+                {/* <Route render={() => (<notFound />)} /> */}
               </Switch>
             </Col>
           </Row>
