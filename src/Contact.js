@@ -114,11 +114,16 @@ class Contact extends React.Component {
 
     submitEmail(e) {
         e.preventDefault();
-        axios({
-            method: "POST",
-            url: "/send",
-            data: this.state
-        }).then((response) => {
+
+        const details = {
+            name: this.state.name,
+            email: this.state.email,
+            subject: this.state.subject,
+            message: this.state.message
+        };
+
+        axios.post("http://localhost:3001/send", details)
+            .then((response) => {
             if (response.data.status === 'success') {
                 alert("Message Sent.");
                 this.resetForm()

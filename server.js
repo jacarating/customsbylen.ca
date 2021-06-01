@@ -2,6 +2,14 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 require("dotenv").config();
+const app = express();
+
+// const corsOptions = {
+//   origin: "*",
+//   optionSuccessStatus: 200
+// };
+
+// app.use(cors(corsOptions));
 
 // const transporter = nodemailer.createTransport({
 //     host: "smtp-mail.outlook.com",
@@ -46,6 +54,14 @@ require("dotenv").config();
 //       }
 //     })
 //   })
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin","*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+// app.use(cors());
+
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com", //replace with your email provider
@@ -64,7 +80,7 @@ transporter.verify(function(error, success) {
   }
 });
 
-app.post('/send', (req, res, next) => {
+app.post('http://localhost:3001/send', (req, res, next) => {
   var name = req.body.name
   var email = req.body.email
   var subject = req.body.subject
@@ -88,4 +104,8 @@ app.post('/send', (req, res, next) => {
       })
     }
   })
+});
+
+app.listen(3001, () => {
+  console.log(`App on 3001`);
 });
