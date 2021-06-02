@@ -2,7 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
 require("dotenv").config();
-const app = express();
+//const app = express();
 
 // const corsOptions = {
 //   origin: "*",
@@ -54,11 +54,11 @@ const app = express();
 //       }
 //     })
 //   })
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin","*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin","*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 // app.use(cors());
 
@@ -106,8 +106,8 @@ app.post('/api/send', (req, res, next) => {
   })
 });
 
-const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}!`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server listening on port ${PORT}!`);
+// });
