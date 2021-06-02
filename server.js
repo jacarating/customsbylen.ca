@@ -80,7 +80,7 @@ transporter.verify(function(error, success) {
   }
 });
 
-app.post('http://localhost:3001/send', (req, res, next) => {
+app.post('/api/send', (req, res, next) => {
   var name = req.body.name
   var email = req.body.email
   var subject = req.body.subject
@@ -106,6 +106,8 @@ app.post('http://localhost:3001/send', (req, res, next) => {
   })
 });
 
-app.listen(3001, () => {
-  console.log(`App on 3001`);
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}!`);
 });
